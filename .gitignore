@@ -1,1 +1,5 @@
+# Abaikan semua folder node_modules di semua subdirektori
+node_modules/
+
+# Abaikan node_modules hanya di dalam folder basic_npm
 basic_npm/node_modules/
