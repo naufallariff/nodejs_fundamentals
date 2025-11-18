@@ -22,9 +22,12 @@ if(fs.readFileSync(filePath, 'utf-8') == '') {
 
 const question = (questionText) => {
     return new Promise((resolve, reject) => {
-        rl.question(questionText, answer => {
+        rl.question(questionText, (answer) => {
             resolve(answer);
-        })
+        });
+        rl.on('close', () => {
+            reject('Input dibatalkan oleh pengguna.');
+        });
     })
 }
 
