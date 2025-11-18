@@ -72,15 +72,39 @@ Arsitektur NodeJS didesain untuk menangani banyak koneksi secara bersamaan denga
 ---
 
 ## 4. NodeJS Module System
+> "**Modules** adalah sekumpulan code yang dapat digunakan kembali, dengan antarmuka yang terdefinisi."
+> "**Node Modules** adalah fungsionalitas yang simpel ataupun kompleks yang tersimpan di dalam sebuah file javascript, yang dapat kita gunakan kembali pada aplikasi node js."
+
 NodeJS menggunakan sistem modul **CommonJS**. Anda dapat memecah kode menjadi beberapa file (modul) agar lebih terstruktur.
-*   **`require()`**: Fungsi untuk mengimpor modul lain.
+Di dalam NodeJS terdapat 3 tipe modules:
+1. **Core Modules** = Modul bawaan Node.js yang sudah tersedia saat instalasi dan bisa langsung digunakan. Contoh: `http`, `fs`, `path`.
+2. **Lokal Modules** = Modul yang kita buat sendiri di dalam proyek. Biasanya berupa file JavaScript yang kita ekspor untuk digunakan di file lain.
+3. **Third Party Modules** atau **NPM Modules** = Modul yang dibuat oleh komunitas dan diinstal dari repositori NPM menggunakan perintah `npm install`. Contoh: `express`, `lodash`, `nodemon`.
+
+contoh pemanggilan module:
+```javascript
+
+```
+
+*   **`require()`**: Fungsi untuk mengimpor modul lain, dengan urutan pencarian dari core modules (jika ada), lokal modules, baru kemudian jika kedua tersebut tidak ada dia akan mencari ke third party modules (npm).
 *   **`module.exports`**: Objek khusus untuk menentukan bagian mana dari sebuah modul yang ingin diekspor (disediakan untuk digunakan oleh modul lain).
 
 ---
 
 ## 5. NPM (Node Package Manager)
 NPM adalah manajer paket bawaan NodeJS.
-*   **`package.json`**: File konfigurasi proyek yang berisi metadata (nama, versi, dll.) dan daftar dependensi (paket yang dibutuhkan). Dibuat dengan `npm init`.
+
+Namun sejatinya pada saat ini NPM telah berkembang dan menjadi sesuatu yang lebih besar lagi, dan sudah diakuisisi oleh GitHub, menjadi platform open source yang menyimpan project-project yang dapat dijadikan module untuk membantu pengembangan aplikasi NodeJS.
+
+Sekarang, dalam konteks yang lebih luas:
+npm, Inc. adalah perusahaan yang didirikan pada tahun 2014 dan diakuisisi oleh GitHub pada tahun 2020. npm merupakan bagian penting dari komunitas JavaScript dan membantu mendukung salah satu ekosistem pengembang terbesar di dunia.
+npm memiliki beberapa peran utama:
+-   **Manajer Paket (Package Manager)**: npm adalah manajer paket untuk Node.js. Dibuat pada tahun 2009 sebagai proyek open source untuk membantu pengembang JavaScript berbagi modul kode yang dikemas dengan mudah.
+-   **Registry npm**: Ini adalah koleksi publik berisi paket-paket kode sumber terbuka (open-source) untuk Node.js, aplikasi web front-end, aplikasi seluler, dan berbagai kebutuhan lainnya dalam komunitas JavaScript.
+-   **Klien Baris Perintah (Command Line Client)**: Ini adalah alat baris perintah yang memungkinkan pengembang untuk menginstal paket dari Registry dan mempublikasikan paket mereka sendiri.  
+
+
+*   **`package.json`**: File konfigurasi proyek yang berisi metadata (nama, versi, dll.) dan daftar dependensi (paket yang dibutuhkan). Dibuat dengan `npm init`. Dalam package.json ini terdapat sebuah fitur yang dapat meringkas perintah ke command line, namanya adalah scripts. Script ini fungsinya untuk menyingkat sebuah perintah untuk terminal, misal perintah "node app.js" ini disingkat menjadi "npm start", dan ini sangat digunakan misal untuk menjalankan beberapa perintah pengujian yang membutuhkan penulisan yang panjang, bisa gunakan script ini untuk mempersingkat, nah jika sintaks scriptnya itu bukan hal yang standar, seperti start dan test, maka cara panggilnya itu ditambah dengan "run", contohnya "npm run dev" seperti itu. Selain itu, di dalam package.json ini juga terdapat dependencies yang tugasnya untuk merincikan module-module yang telah diinstall melalui npm, yang berarti menunjukkan bahwa aplikasi tersebut bergantung pada dependencies ini.
 *   **`npm install <nama-paket>`**: Perintah untuk mengunduh dan menginstal paket dari repositori NPM.
 *   **`node_modules`**: Folder tempat semua paket yang diinstal disimpan.
 

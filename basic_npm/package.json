@@ -1,0 +1,16 @@
+{
+  "name": "basic_npm",
+  "version": "1.0.0",
+  "description": "Belajar NodeJS",
+  "license": "ISC",
+  "author": "Naufal Arif",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "validator": "^13.15.23"
+  }
+}
