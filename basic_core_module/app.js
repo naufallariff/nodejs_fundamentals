@@ -69,9 +69,9 @@ setTimeout(() => {
                 fs.writeFile('data/contacts.json', JSON.stringify(contacts, null, 4), err => { // 4 ini sebagai 4 kali space untuk kerapihan file json
                     if (err) throw err;
                     console.log('Data berhasil disimpan');
+                    rl.close();
                 });
             });
-            rl.close();
         });
     });
 }, 2000);

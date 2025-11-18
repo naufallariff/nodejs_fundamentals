@@ -68,7 +68,6 @@ const saveContact = (name, age, email, mobilePhone) => {
             console.log('Data berhasil disimpan');
         });
     });
-    rl.close();
 }
 
 module.exports = {
